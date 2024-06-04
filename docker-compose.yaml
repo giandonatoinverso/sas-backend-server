@@ -17,8 +17,6 @@ services:
   sas-backend-server:
     image: giandonatoinverso/sas-backend-server:latest
     restart: always
-    volumes:
-      - sas_backend_server_data:/app
     ports:
       - "8080:8080"
     depends_on:
