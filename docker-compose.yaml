@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  sas-db:
+    image: giandonatoinverso/sas-db:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - sas_db_data:/var/lib/mysql
+    networks:
+      - sas-network
+
+  sas-backend-server:
+    image: giandonatoinverso/sas-backend-server:latest
+    restart: always
+    volumes:
+      - sas_backend_server_data:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_HOST=sas-db
+    networks:
+      - sas-network
+
+volumes:
+  sas_db_data:
+  sas_backend_server_data:
+
+networks:
+  sas-network:
+    driver: bridge
