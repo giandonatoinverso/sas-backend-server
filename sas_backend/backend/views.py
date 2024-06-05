@@ -1,10 +1,11 @@
-from rest_framework import generics, pagination
+from rest_framework import generics, pagination, status
 from rest_framework.response import Response
-from rest_framework import status
 from rest_framework.views import APIView
 from .models import SentimentAnalysis
 from .serializers import SentimentAnalysisSerializer
 from sentiment_analyzer.textblob_sentiment_analyzer import TextBlobSentimentAnalyzer
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
 class SentimentAnalysisPagination(pagination.PageNumberPagination):
@@ -16,8 +17,26 @@ class SentimentAnalysisList(generics.ListAPIView):
     serializer_class = SentimentAnalysisSerializer
     pagination_class = SentimentAnalysisPagination
 
+    @swagger_auto_schema(
+        operation_description="Retrieve a list of sentiment analysis",
+        responses={200: SentimentAnalysisSerializer(many=True)}
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
 
 class SentimentAnalysisCreate(APIView):
+    @swagger_auto_schema(
+        operation_description="Create a new sentiment analysis",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=['text'],
+            properties={
+                'text': openapi.Schema(type=openapi.TYPE_STRING, description='Text to analyze'),
+            },
+        ),
+        responses={201: SentimentAnalysisSerializer, 400: 'Bad Request'}
+    )
     def post(self, request, format=None):
         text = request.data.get('text')
 
