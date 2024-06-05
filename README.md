@@ -5,5 +5,5 @@ sudo task publish-docker
 ```
 
 ```bash
-docker compose build --no-cache && docker-compose --env-file production.env up -d
+docker compose build --no-cache && docker-compose up -d
 ```

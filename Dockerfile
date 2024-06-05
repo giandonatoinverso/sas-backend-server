@@ -9,5 +9,7 @@ RUN apk update && \
 COPY requirements.txt /app
 RUN pip3 install -r requirements.txt --no-cache-dir
 COPY ./sas_backend /app
+# should be a dependency
+COPY ./sentiment_analyzer /app/sentiment_analyzer
 ENTRYPOINT ["python3"]
 CMD ["manage.py", "runserver", "0.0.0.0:8080"]

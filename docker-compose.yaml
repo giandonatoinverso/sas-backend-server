@@ -34,7 +34,6 @@ services:
 
 volumes:
   sas_db_data:
-  sas_backend_server_data:
 
 networks:
   sas-network:
