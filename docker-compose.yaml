@@ -32,6 +32,18 @@ services:
     networks:
       - sas-network
 
+  sas-client:
+    image: giandonatoinverso/sas-client:latest
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - BACKEND_URL=http://sas-backend-server:8080
+    depends_on:
+      - sas-backend-server
+    networks:
+      - sas-network
+
 volumes:
   sas_db_data:
 
