@@ -1,0 +1,29 @@
+{
+    "info": {
+        "_postman_id": "8c7a874e-394b-4738-8763-24a0998b6967",
+        "name": "Sentiment Analysis List",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Sentiment Analysis List",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/sentiment-analysis/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "sentiment-analysis",
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
