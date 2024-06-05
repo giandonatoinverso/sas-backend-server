@@ -52,8 +52,8 @@ The Postman collection in the *postman/* directory provides pre-configured reque
 
 The *sas-backend-service* is designed for flexibility and customization. The sentiment analysis functionality is implemented through a *sentiment_analyzer.py* interface, which can be easily swapped out with different implementations.
 
-- *Current Implementation*: The default implementation uses TextBlob, a popular Python library for natural language processing.
-- *Alternative Implementations*: You can replace TextBlob with other sentiment analysis tools or machine learning models, such as VADER, Stanford CoreNLP, or custom-trained models.
+- **Current Implementation**: The default implementation uses TextBlob, a popular Python library for natural language processing.
+- **Alternative Implementations**: You can replace TextBlob with other sentiment analysis tools or machine learning models, such as VADER, Stanford CoreNLP, or custom-trained models.
 
 To customize the sentiment analysis engine, simply create a new class that implements the *sentiment_analyzer.py* interface and update the backend configuration to use your new implementation.
 
