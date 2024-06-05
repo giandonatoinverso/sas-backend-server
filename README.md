@@ -40,9 +40,9 @@ The application follows a microservices architecture, consisting of two main com
 
 Explore the interactive API documentation using Swagger UI:
 
-- Navigate to *http://localhost:8000/swagger/* for Swagger UI style documentation.
-- Navigate to *http://localhost:8000/redoc/* for ReDoc style documentation.
-- Navigate to *http://localhost:8000/swagger.json* or *http://localhost:8000/swagger.yaml* to get the schema in JSON or YAML format.
+- Navigate to *http://localhost:8080/swagger/* for Swagger UI style documentation.
+- Navigate to *http://localhost:8080/redoc/* for ReDoc style documentation.
+- Navigate to *http://localhost:8080/swagger.json* or *http://localhost:8080/swagger.yaml* to get the schema in JSON or YAML format.
 
 ## API Testing
 
