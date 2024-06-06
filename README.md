@@ -31,7 +31,7 @@ The application follows a microservices architecture, consisting of two main com
 
 2. **Start the application:**
    ```bash
-   docker compose build --no-cache && docker-compose up -d
+   docker compose build --no-cache && docker-compose --env-file production.env up -d
    ```
 3. **Accessing the Application**
    - Open your web browser and navigate to *http://localhost:8000* (or the address specified in your docker-compose.yml).
